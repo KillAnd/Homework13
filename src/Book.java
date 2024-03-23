@@ -1,9 +1,11 @@
+import java.util.Objects;
+
 public class Book {
     //homework13
 
     private final String name;
     private int yearPublishing;
-    private Author author;
+    private final Author author;
 
     public Book(String name, int yearPublishing, Author author) {
         this.name = name;
@@ -25,5 +27,23 @@ public class Book {
 
     public Author getAuthor() {
         return author;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + yearPublishing;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(name, book.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
