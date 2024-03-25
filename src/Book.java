@@ -39,7 +39,7 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(name, book.name);
+        return Objects.equals(name, book.name) && Objects.equals(yearPublishing, book.yearPublishing);
     }
 
     @Override
